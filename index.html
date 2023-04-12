@@ -6,11 +6,67 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spendwise, gérez sagement</title>
 </head>
 <body>
+  <header>
+    <h1>Spendwise, gérez sagement</h1>
+  </header>
+  <main>
+    <div class="container">
+      <div>
+        <form id="incomeForm">
+          <h2>Revenus</h2>
+          <div>
+            <label for="income">Entrez votre revenu</label>
+            <input type="number" name="income" id="income">
+          </div>
+          <button type="submit">
+            <span class="material-symbols-outlined">save</span>
+            Sauvegarder
+          </button>
+        </form>
+        <ul id="listIncomes">
+          <li>28 €</li>
+          <li>28 €</li>
+          <li>28 €</li>
+          <li>28 €</li>
+        </ul>
+      </div>
+      <div>
+        <form id="expenseForm">
+          <h2>Dépenses</h2>
+          <div>
+            <label for="expense">Entrez votre dépense</label>
+            <input type="number" name="expense" id="expense">
+          </div>
+          <button type="submit">
+            <span class="material-symbols-outlined">save</span>
+            Sauvegarder
+          </button>
+        </form>
+        <ul id="listExpenses">
+          <li>28 €</li>
+          <li>28 €</li>
+        </ul>
+      </div>
+    </div>
+    <div id="result">
+      0€
+    </div>
+    <div class="toolbar">
+      <button type="button" id="btnLearn">
+        <span class="material-symbols-outlined">school</span>
+        Découvrir plus
+      </button>
+      <button type="button" id="btnShare">
+        <span class="material-symbols-outlined">share</span>
+        Partager
+      </button>
+    </div>
+  </main>
 </body>
 </html>
