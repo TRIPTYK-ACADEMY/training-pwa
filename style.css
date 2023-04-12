@@ -174,12 +174,13 @@ ul > li > span:hover {
 
   .toolbar {
     flex-wrap: wrap;
+    width: 100%;
     padding: 1rem 3rem;
   }
 
   .toolbar button {
-    margin-right: 0;
-    margin-bottom: .7rem
+    /* margin-right: 0;
+    margin-bottom: .7rem */
   }
   
   .toolbar button:last-of-type {
