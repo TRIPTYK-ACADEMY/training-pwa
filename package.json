@@ -1,0 +1,13 @@
+{
+	"name": "vite-pwa",
+  "version": "0.0.1",
+  "description": "",
+	"scripts": {
+    "dev": "vite --port 3000 --host",
+    "build": "vite build",
+    "preview": "vite preview --port 3000 --host"
+  },
+	"dependencies": {
+		"vite": "^4.2.1"
+	}
+}
