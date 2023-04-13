@@ -3,6 +3,12 @@ let expenses = [];
 
 // Registering all the event handlers when the page loads
 document.addEventListener("DOMContentLoaded", event => {
+  getInitialData('income', "listIncomes");
+  getInitialData('expense', "listExpenses");
+
+  renderBudgetByType(incomes, 'listIncomes');
+  renderBudgetByType(expenses, 'listExpenses');
+
   document.querySelector("#incomeForm").addEventListener("submit", event => {
     event.preventDefault();
     const income = document.querySelector("#incomeForm input").value;
@@ -11,6 +17,7 @@ document.addEventListener("DOMContentLoaded", event => {
     } else {
       incomes.push(+income);
       renderBudgetByType(incomes, 'listIncomes');
+      save(incomes, 'listIncomes')
       document.querySelector("#incomeForm input").value = "";
     }
   });
@@ -23,6 +30,7 @@ document.addEventListener("DOMContentLoaded", event => {
     } else {
       expenses.push(+expense);
       renderBudgetByType(expenses, 'listExpenses');
+      save(expenses, 'listExpenses')
       document.querySelector("#expenseForm input").value = "";
     }
   });
@@ -48,6 +56,7 @@ function renderBudgetByType(listBudget, listId) {
           if (confirm("Do you want to delete this?")) {
             listBudget.splice(index, 1);
             renderBudgetByType(listBudget, listId);
+            save(listBudget, listId)
           }
       });
       li.appendChild(deleteButton);
@@ -63,3 +72,18 @@ function renderTotalBudget() {
 
   result.innerHTML = `${totalIncomes - totalExpenses} €`;
 }
+
+function save(listBudget, listId) {
+  localStorage.setItem(listId, JSON.stringify(listBudget));
+}
+
+function getInitialData(type, listId) {
+  if (localStorage.getItem(listId)) {
+    if (type === "expense") {
+      expenses = JSON.parse(localStorage.getItem(listId));
+    }
+    if (type === "income") {
+      incomes = JSON.parse(localStorage.getItem(listId));
+    }
+  }
+} 
