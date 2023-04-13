@@ -38,6 +38,16 @@ document.addEventListener("DOMContentLoaded", event => {
   document.querySelector("#btnLearn").addEventListener("click", event => {
     location.href = "https://triptyk.eu";
   })
+
+  document.querySelector("#btnShare").addEventListener("click", event => {
+    const totalExpenses = expenses.reduce((prev, curr) => prev + curr, 0);
+    const totalIncomes = incomes.reduce((prev, curr) => prev + curr, 0);
+
+    navigator.share({
+        title: "Spendwise",
+        text: `Budget total de ${totalIncomes - totalExpenses} €`
+    })
+  })
 })
 
 
