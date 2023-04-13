@@ -175,7 +175,7 @@ ul > li > span:hover {
   .toolbar {
     flex-wrap: wrap;
     width: 100%;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
   }
 
   .toolbar button {
@@ -185,5 +185,11 @@ ul > li > span:hover {
   
   .toolbar button:last-of-type {
     margin-bottom: 0;
+  }
+}
+
+@media (display-mode: standalone), (display-mode: minimal-ui) {
+  .hideWhenInstall {
+      display: none;
   }
 }
