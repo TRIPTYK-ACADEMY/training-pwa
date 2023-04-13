@@ -3,3 +3,22 @@ body {
     --color-secondary: #2b214f;
     --color-background: #f6f6f6;
 }
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+  
+body, h1, h2, ul, li {
+    margin: 0;
+    font-size: 1rem;
+    padding: 0;
+}
+  
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--color-background);
+}
