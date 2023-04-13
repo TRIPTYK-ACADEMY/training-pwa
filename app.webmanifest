@@ -28,5 +28,13 @@
         "type": "image/png",
         "purpose": "maskable"
     }
+  ],
+  "description": "This app lets you handle your budget",
+  "screenshots": [
+      {
+          "src": "icons/screenshots.jpg",
+          "sizes": "1632x1012",
+          "type": "image/jpg"
+      }
   ]
 }
