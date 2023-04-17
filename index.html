@@ -9,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="./style.css">
-  <script src="./app.js"></script>
   <script src="./sw-register.js"></script>
+  <script src="./notification.js" defer></script>
+  <script src="./app.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" href="./icons/icon-maskable.png">
   <meta name="theme-color" content="#31d3af">
@@ -55,9 +56,13 @@
       0€
     </div>
     <div class="toolbar">
-      <button type="button" id="btnLearn">
+      <!-- <button type="button" id="btnLearn">
         <span class="material-symbols-outlined">school</span>
         Découvrir plus
+      </button> -->
+      <button type="button" id="btnNotif">
+        <span class="material-symbols-outlined">notifications</span>
+        Notification
       </button>
       <button type="button" id="btnShare">
         <span class="material-symbols-outlined">share</span>
