@@ -36,5 +36,17 @@
           "sizes": "1632x1012",
           "type": "image/jpg"
       }
+  ],
+  "shortcuts" : [
+    {
+      "name": "New income",
+      "url": "/",
+      "description": "Add a new income in your budget"
+    },
+    {
+      "name": "New expense",
+      "url": "/",
+      "description": "Add a new expense in your budget"
+    }
   ]
 }
