@@ -2,6 +2,7 @@
   "name": "Spendwise, gérez sagement",
   "short_name": "Spendwise",
   "start_url": "./",
+  "background_color": "#2b214f",
   "theme_color": "#31d3af",
   "scope": "./",
   "orientation": "portrait",
