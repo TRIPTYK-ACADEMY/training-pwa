@@ -5,8 +5,8 @@ let expenses = [];
 getInitialData("income", "listIncomes");
 getInitialData("expense", "listExpenses");
 
-renderBudgetByType(incomes, "listIncomes");
-renderBudgetByType(expenses, "listExpenses");
+renderBudgetByType(incomes, "listIncomes", true);
+renderBudgetByType(expenses, "listExpenses", true);
 
 document.querySelector("#incomeForm").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -67,7 +67,7 @@ document.querySelector("#btnInstall").addEventListener("click", (event) => {
 });
 
 // Render the budget on the DOM
-function renderBudgetByType(listBudget, listId) {
+function renderBudgetByType(listBudget, listId, renderInitial = false) {
   const list = document.querySelector(`#${listId}`);
   list.innerHTML = "";
   listBudget.forEach((element, index) => {
@@ -87,15 +87,30 @@ function renderBudgetByType(listBudget, listId) {
     li.appendChild(deleteButton);
     list.appendChild(li);
   });
-  renderTotalBudget();
+  renderTotalBudget(renderInitial);
 }
 
-function renderTotalBudget() {
+function renderTotalBudget(renderInitial) {
   const result = document.querySelector(`#result`);
   const totalExpenses = expenses.reduce((prev, curr) => prev + curr, 0);
   const totalIncomes = incomes.reduce((prev, curr) => prev + curr, 0);
+  const total = totalIncomes - totalExpenses;
 
-  result.innerHTML = `${totalIncomes - totalExpenses} €`;
+  result.innerHTML = `${total} €`;
+
+  if (total < 0 && !renderInitial) {
+    fetch('http://localhost:8000/budget', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: 'Attention votre budget est négatif',
+        body: `${total} €`
+      })
+    })
+  }
 }
 
 function save(listBudget, listId) {
