@@ -13,6 +13,19 @@ const privateVapidKey = "6TXz0GbQbyHKFJK7wsGcb9qoQF5bza63Bn_JFtojYgU";
 
 app.use(cors({ origin: '*' }))
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  const start = Date.now();
+  const { method, url} = req;
+
+  res.on('finish', function() {
+    const elapsedTime = Date.now() - start;
+    const { statusCode } = res;
+
+    console.log(`${method} ${url} - ${statusCode} - ${elapsedTime}ms`);
+  });
+
+  next();
+});
 
 webpush.setVapidDetails("mailto:sebastien@triptyk.eu", publicVapidKey, privateVapidKey);
 
