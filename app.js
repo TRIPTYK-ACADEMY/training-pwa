@@ -38,14 +38,26 @@ document.querySelector("#expenseForm").addEventListener("submit", (event) => {
 //   location.href = "https://triptyk.eu";
 // });
 
-document.querySelector("#btnShare").addEventListener("click", (event) => {
+document.querySelector("#btnGetNotif").addEventListener("click", (event) => {
   const totalExpenses = expenses.reduce((prev, curr) => prev + curr, 0);
   const totalIncomes = incomes.reduce((prev, curr) => prev + curr, 0);
 
-  navigator.share({
-    title: "Spendwise",
-    text: `Budget total de ${totalIncomes - totalExpenses} €`,
-  });
+  fetch('http://localhost:8000/notification', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      title: 'Voici votre budget',
+      body: `${totalExpenses - totalIncomes}€`
+    })
+  })
+
+  // navigator.share({
+  //   title: "Spendwise",
+  //   text: `Budget total de ${totalIncomes - totalExpenses} €`,
+  // });
 });
 
 let bipEvent = null;
